@@ -3,95 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joddat | IT Systems & Security</title>
+    <title>Joddat Rafih | IT Systems & Security</title>
     <style>
         :root { --bg: #0f172a; --text: #f8fafc; --accent: #22c55e; --card: #1e293b; --border: #334155; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: #0b1120; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: #0b1120; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
         /* PERSISTENT BIO SECTION */
         header { display: flex; align-items: center; gap: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 20px; flex-wrap: wrap; }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; }
-        .bio-text h1 { margin: 0; color: var(--accent); }
+        .profile-img { width: 140px; height: 140px; border-radius: 12px; border: 2px solid var(--accent); object-fit: cover; }
+        .bio-text { flex: 1; min-width: 300px; }
+        .bio-text h1 { margin: 0; color: var(--accent); font-size: 2.2rem; }
+
+        /* LINKEDIN BUTTON */
+        .li-btn { display: inline-flex; align-items: center; gap: 8px; background: #0077b5; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin-top: 10px; transition: 0.3s; }
+        .li-btn:hover { background: #005a87; transform: translateY(-2px); }
 
         /* NAVIGATION MENU */
-        nav { display: flex; gap: 15px; background: var(--card); padding: 10px; border-radius: 4px; margin-bottom: 30px; border: 1px solid var(--border); }
-        nav a { color: var(--text); text-decoration: none; font-weight: bold; padding: 8px 15px; border-radius: 4px; transition: 0.3s; cursor: pointer; }
-        nav a:hover, nav a.active { background: var(--accent); color: #000; }
+        nav { display: flex; gap: 10px; background: #161e2e; padding: 10px; border-radius: 6px; margin-bottom: 30px; border: 1px solid var(--accent); }
+        .nav-link { color: var(--text); text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 4px; transition: 0.3s; cursor: pointer; flex: 1; text-align: center; }
+        .nav-link:hover { background: rgba(34, 197, 94, 0.1); color: var(--accent); }
+        .nav-link.active { background: var(--accent); color: #000; }
 
-        /* CHANGING CONTENT AREA */
-        .page-content { display: none; animation: fadeIn 0.5s; }
+        /* CONTENT AREA */
+        .page-content { display: none; animation: fadeIn 0.4s ease-in-out; }
         .page-content.active { display: block; }
-
-        .project-card { background: var(--card); padding: 20px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        @media (max-width: 600px) { header { text-align: center; justify-content: center; } }
+        .project-card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px; }
+        h2 { color: var(--accent); border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 25px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { header { flex-direction: column; text-align: center; } nav { flex-direction: column; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <img src="images/profile.jpg" alt="Joddat" class="profile-img">
+        <img src="images/profile.jpg" alt="Joddat Rafih" class="profile-img">
         <div class="bio-text">
-            <h1>Joddat</h1>
-            <p>IT Systems & Security Specialist | NSCC 2026</p>
-            <p style="font-size: 0.9rem; max-width: 600px;">First-generation Canadian with a "builder" mindset. Focused on secure infrastructure, Zero Trust architecture, and high-quality documentation.</p>
+            <h1>Joddat Rafih</h1>
+            <p style="font-weight: 600; color: #94a3b8; margin: 5px 0;">IT Systems & Management | NSCC Class of 2026</p>
+            <p style="font-size: 0.95rem; max-width: 700px; margin-bottom: 15px;">First-generation Canadian specializing in Zero Trust architecture, secure server administration, and high-quality technical documentation.</p>
+            
+            <a href="https://linkedin.com/in/joddatrafih" target="_blank" rel="noopener noreferrer" class="li-btn">
+                Connect on LinkedIn
+            </a>
         </div>
     </header>
 
     <nav id="main-nav">
-        <a onclick="showPage('home')" class="nav-link active">Home</a>
-        <a onclick="showPage('capstone')" class="nav-link">Capstone</a>
-        <a onclick="showPage('artifacts')" class="nav-link">Other Artifacts</a>
+        <a onclick="showPage('home', this)" class="nav-link active">Goal & Summary</a>
+        <a onclick="showPage('capstone', this)" class="nav-link">Capstone Project</a>
+        <a onclick="showPage('artifacts', this)" class="nav-link">Portfolio Artifacts</a>
     </nav>
 
-    <main id="content">
-        
+    <main>
         <div id="home" class="page-content active">
-            <h2>About My Career Goals</h2>
-            <p>I chose NSCC for its applied learning model. My goal is to enter <strong>Systems Administration or Cybersecurity</strong>, building secure environments that prioritize data sovereignty.</p>
-            <p>I grew up in an entrepreneurial environment where reliability and long-term planning are key—I bring that same mindset to every server I configure.</p>
+            <h2>Career Goals & The NSCC Path</h2>
+            <p>I chose NSCC for its applied learning model. My goal is to become a <strong>Systems Administrator or Cybersecurity Analyst</strong>, focusing on building secure, self-hosted environments that prioritize data sovereignty.</p>
+            <p>I bring an entrepreneurial mindset to IT: I view infrastructure as a business asset that must be reliable, scalable, and—above all—highly documented.</p>
         </div>
 
         <div id="capstone" class="page-content">
-            <h2>Capstone: onepercentplaid.com</h2>
+            <h2>[01] Enterprise DMZ & Zero Trust</h2>
             <div class="project-card">
-                <h3>Enterprise DMZ Architecture</h3>
-                <p>Designed a "Dark Server" strategy isolating a Windows AD Domain Controller using Tailscale ZTNA, Nginx, and Duo MFA.</p>
-                <a href="https://github.com/joddatrafih/Capstone2026" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">View Source Code (New Tab) &rarr;</a>
+                <h3>onepercentplaid.com</h3>
+                <p>Designed a "Dark Server" strategy isolating a Windows AD Domain Controller. Used Tailscale ZTNA for mesh encryption and Duo MFA for identity verification.</p>
+                <a href="https://github.com/joddatrafih/Capstone2026" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold;">[View Source Code on GitHub] &rarr;</a>
             </div>
         </div>
 
         <div id="artifacts" class="page-content">
-            <h2>Secondary Projects</h2>
+            <h2>[02] Secondary Technical Artifacts</h2>
             <div class="project-card">
                 <h3>Self-Hosted Remote Support (RustDesk)</h3>
-                <p>Engineered a private support environment to ensure data sovereignty. Focused on a <strong>Documentation-First</strong> approach.</p>
+                <p>Deployed private infrastructure to ensure data sovereignty. Emphasized a <strong>Documentation-First</strong> approach for long-term maintainability.</p>
             </div>
             <div class="project-card">
-                <h3>Virtual Tabletop Environment</h3>
-                <p>Custom server-side logic for Magic: The Gathering. Demonstrates technical adaptability beyond standard IT frameworks.</p>
+                <h3>Virtual Tabletop Logic & Deployment</h3>
+                <p>Custom-built logic for an MTG virtual environment. Demonstrates technical adaptability beyond standard IT frameworks.</p>
             </div>
         </div>
-
     </main>
 </div>
 
 <script>
-    function showPage(pageId) {
-        // Hide all pages
-        const pages = document.querySelectorAll('.page-content');
-        pages.forEach(page => page.classList.remove('active'));
-
-        // Show the selected page
+    function showPage(pageId, element) {
+        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
-
-        // Update Nav Link styling
-        const links = document.querySelectorAll('.nav-link');
-        links.forEach(link => link.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        element.classList.add('active');
     }
 </script>
 
