@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joddat Rafih| IT Systems & Security</title>
+    <title>Joddat | IT Systems & Security</title>
     <style>
         :root { --bg: #0f172a; --text: #f8fafc; --accent: #22c55e; --card: #1e293b; --border: #334155; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 40px; border: 1px solid var(--border); border-radius: 8px; background: #0b1120; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .container { max-width: 1000px; margin: 20px auto; padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: #0b1120; }
         
-        /* Header & Bio */
-        header { display: flex; align-items: flex-start; gap: 40px; border-bottom: 2px solid var(--accent); padding-bottom: 30px; margin-bottom: 40px; flex-wrap: wrap; }
-        .profile-img { width: 180px; height: 180px; border-radius: 12px; border: 2px solid var(--accent); object-fit: cover; }
-        .bio { flex: 1; min-width: 300px; }
-        h1 { margin: 0; color: var(--accent); font-size: 2.5rem; letter-spacing: -1px; }
-        .sub-header { font-size: 1.1rem; color: #94a3b8; font-weight: 600; margin-bottom: 15px; }
-        
-        /* Artifacts */
-        h2 { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-top: 50px; border-left: 5px solid var(--accent); padding-left: 15px; }
-        .project-card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 25px; }
-        .tag { background: #0f172a; color: var(--accent); padding: 4px 10px; font-size: 0.8rem; border: 1px solid var(--accent); margin-right: 8px; border-radius: 4px; }
-        
-        /* Links */
-        .btn { display: inline-block; margin-top: 15px; padding: 8px 16px; background: transparent; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
-        .btn:hover { background: var(--accent); color: #000; }
-        .footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: #64748b; font-size: 0.9rem; }
-        
-        @media (max-width: 768px) { header { flex-direction: column; align-items: center; text-align: center; } }
+        /* PERSISTENT BIO SECTION */
+        header { display: flex; align-items: center; gap: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; }
+        .bio-text h1 { margin: 0; color: var(--accent); }
+
+        /* NAVIGATION MENU */
+        nav { display: flex; gap: 15px; background: var(--card); padding: 10px; border-radius: 4px; margin-bottom: 30px; border: 1px solid var(--border); }
+        nav a { color: var(--text); text-decoration: none; font-weight: bold; padding: 8px 15px; border-radius: 4px; transition: 0.3s; cursor: pointer; }
+        nav a:hover, nav a.active { background: var(--accent); color: #000; }
+
+        /* CHANGING CONTENT AREA */
+        .page-content { display: none; animation: fadeIn 0.5s; }
+        .page-content.active { display: block; }
+
+        .project-card { background: var(--card); padding: 20px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @media (max-width: 600px) { header { text-align: center; justify-content: center; } }
     </style>
 </head>
 <body>
@@ -34,52 +34,66 @@
 <div class="container">
     <header>
         <img src="images/profile.jpg" alt="Joddat" class="profile-img">
-        
-        <div class="bio">
-            <h1>Joddat Rafih</h1>
-            <div class="sub-header">IT Systems & Management | NSCC Class of 2026</div>
-            <p>
-                I am a first-generation Canadian with a "builder" mindset. As a second-year IT student, I focus on the architecture and security of systems, ensuring that infrastructure is not only functional but resilient and highly documented.
-            </p>
-            <p>
-                <strong>Why NSCC?</strong> I chose NSCC for its hands-on approach. I wanted to move beyond theory and gain experience in real-world server environments where I could configure, test, and secure infrastructure.
-            </p>
-            <p>
-                <strong>Career Goals:</strong> My objective is to enter the field of <strong>Systems Administration or Cybersecurity</strong>. I aim to build secure, self-hosted environments that prioritize organizational data sovereignty.
-            </p>
+        <div class="bio-text">
+            <h1>Joddat</h1>
+            <p>IT Systems & Security Specialist | NSCC 2026</p>
+            <p style="font-size: 0.9rem; max-width: 600px;">First-generation Canadian with a "builder" mindset. Focused on secure infrastructure, Zero Trust architecture, and high-quality documentation.</p>
         </div>
     </header>
 
-    <section id="artifacts">
-        <h2>Learning Portfolio Artifacts</h2>
+    <nav id="main-nav">
+        <a onclick="showPage('home')" class="nav-link active">Home</a>
+        <a onclick="showPage('capstone')" class="nav-link">Capstone</a>
+        <a onclick="showPage('artifacts')" class="nav-link">Other Artifacts</a>
+    </nav>
 
-        <div class="project-card">
-            <h3>Enterprise DMZ & Zero-Trust Architecture</h3>
-            <a href="https://github.com/joddatrafih/Capstone2026" target="_blank" rel="noopener noreferrer" class="btn">View Source Code</a>
-            <p><strong>The Project:</strong> Developed a "Dark Server" strategy for my Capstone (onepercentplaid.com). This involves isolating a Windows Domain Controller behind a hardened Ubuntu Gateway using Nginx and Tailscale ZTNA.</p>
-            <p><strong>Employer Benefit:</strong> Provides high-level risk mitigation by removing the public-facing attack surface of critical identity infrastructure while maintaining secure, authenticated access via Duo MFA.</p>
-            <div><span class="tag">Active Directory</span> <span class="tag">Zero Trust</span> <span class="tag">Nginx</span></div>
+    <main id="content">
+        
+        <div id="home" class="page-content active">
+            <h2>About My Career Goals</h2>
+            <p>I chose NSCC for its applied learning model. My goal is to enter <strong>Systems Administration or Cybersecurity</strong>, building secure environments that prioritize data sovereignty.</p>
+            <p>I grew up in an entrepreneurial environment where reliability and long-term planning are key—I bring that same mindset to every server I configure.</p>
         </div>
 
-        <div class="project-card">
-            <h3>Self-Hosted Remote Support (RustDesk)</h3>
-            <p><strong>The Project:</strong> Deployed a private RustDesk server for internal remote support. This emphasized a <strong>Documentation-First</strong> approach to ensure ease of management for technical teams.</p>
-            <p><strong>Employer Benefit:</strong> Reduces reliance on external SaaS providers and ensures that all remote support traffic remains within the internal network perimeter.</p>
-            <div><span class="tag">Self-Hosting</span> <span class="tag">Remote Support</span> <span class="tag">Documentation</span></div>
+        <div id="capstone" class="page-content">
+            <h2>Capstone: onepercentplaid.com</h2>
+            <div class="project-card">
+                <h3>Enterprise DMZ Architecture</h3>
+                <p>Designed a "Dark Server" strategy isolating a Windows AD Domain Controller using Tailscale ZTNA, Nginx, and Duo MFA.</p>
+                <a href="https://github.com/joddatrafih/Capstone2026" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">View Source Code (New Tab) &rarr;</a>
+            </div>
         </div>
 
-        <div class="project-card">
-            <h3>Virtual Tabletop Logic & Deployment</h3>
-            <p><strong>The Project:</strong> A self-directed study creating a virtual Magic: The Gathering environment. This required custom server-side logic and proves my ability to adapt IT principles to non-standard business requirements.</p>
-            <p><strong>Employer Benefit:</strong> Demonstrates technical adaptability and the logic required to build bespoke tools when commercial software falls short of specific needs.</p>
-            <div><span class="tag">Custom Logic</span> <span class="tag">Web Services</span> <span class="tag">Adaptability</span></div>
+        <div id="artifacts" class="page-content">
+            <h2>Secondary Projects</h2>
+            <div class="project-card">
+                <h3>Self-Hosted Remote Support (RustDesk)</h3>
+                <p>Engineered a private support environment to ensure data sovereignty. Focused on a <strong>Documentation-First</strong> approach.</p>
+            </div>
+            <div class="project-card">
+                <h3>Virtual Tabletop Environment</h3>
+                <p>Custom server-side logic for Magic: The Gathering. Demonstrates technical adaptability beyond standard IT frameworks.</p>
+            </div>
         </div>
-    </section>
 
-    <div class="footer">
-        Active Portfolio | Hosted via GitHub Pages | <a href="https://linkedin.com/in/joddatrafih" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-    </div>
+    </main>
 </div>
+
+<script>
+    function showPage(pageId) {
+        // Hide all pages
+        const pages = document.querySelectorAll('.page-content');
+        pages.forEach(page => page.classList.remove('active'));
+
+        // Show the selected page
+        document.getElementById(pageId).classList.add('active');
+
+        // Update Nav Link styling
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => link.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
+</script>
 
 </body>
 </html>
