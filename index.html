@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joddat | IT Systems & Security</title>
+    <style>
+        :root { --bg: #0f172a; --text: #f8fafc; --accent: #22c55e; --card: #1e293b; --border: #334155; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 40px; border: 1px solid var(--border); border-radius: 8px; background: #0b1120; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        /* Header & Bio */
+        header { display: flex; align-items: flex-start; gap: 40px; border-bottom: 2px solid var(--accent); padding-bottom: 30px; margin-bottom: 40px; flex-wrap: wrap; }
+        .profile-img { width: 180px; height: 180px; border-radius: 12px; border: 2px solid var(--accent); object-fit: cover; }
+        .bio { flex: 1; min-width: 300px; }
+        h1 { margin: 0; color: var(--accent); font-size: 2.5rem; letter-spacing: -1px; }
+        .sub-header { font-size: 1.1rem; color: #94a3b8; font-weight: 600; margin-bottom: 15px; }
+        
+        /* Artifacts */
+        h2 { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-top: 50px; border-left: 5px solid var(--accent); padding-left: 15px; }
+        .project-card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 25px; }
+        .tag { background: #0f172a; color: var(--accent); padding: 4px 10px; font-size: 0.8rem; border: 1px solid var(--accent); margin-right: 8px; border-radius: 4px; }
+        
+        /* Links */
+        .btn { display: inline-block; margin-top: 15px; padding: 8px 16px; background: transparent; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+        .btn:hover { background: var(--accent); color: #000; }
+        .footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: #64748b; font-size: 0.9rem; }
+        
+        @media (max-width: 768px) { header { flex-direction: column; align-items: center; text-align: center; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="images/profile.jpg" alt="Joddat" class="profile-img">
+        
+        <div class="bio">
+            <h1>Joddat</h1>
+            <div class="sub-header">IT Systems & Management | NSCC Class of 2026</div>
+            <p>
+                I am a first-generation Canadian with a "builder" mindset. As a second-year IT student, I focus on the architecture and security of systems, ensuring that infrastructure is not only functional but resilient and highly documented.
+            </p>
+            <p>
+                <strong>Why NSCC?</strong> I chose NSCC for its hands-on approach. I wanted to move beyond theory and gain experience in real-world server environments where I could configure, test, and secure infrastructure.
+            </p>
+            <p>
+                <strong>Career Goals:</strong> My objective is to enter the field of <strong>Systems Administration or Cybersecurity</strong>. I aim to build secure, self-hosted environments that prioritize organizational data sovereignty.
+            </p>
+        </div>
+    </header>
+
+    <section id="artifacts">
+        <h2>Learning Portfolio Artifacts</h2>
+
+        <div class="project-card">
+            <h3>Enterprise DMZ & Zero-Trust Architecture</h3>
+            <p><strong>The Project:</strong> Developed a "Dark Server" strategy for my Capstone (onepercentplaid.com). This involves isolating a Windows Domain Controller behind a hardened Ubuntu Gateway using Nginx and Tailscale ZTNA.</p>
+            <p><strong>Employer Benefit:</strong> Provides high-level risk mitigation by removing the public-facing attack surface of critical identity infrastructure while maintaining secure, authenticated access via Duo MFA.</p>
+            <div><span class="tag">Active Directory</span> <span class="tag">Zero Trust</span> <span class="tag">Nginx</span></div>
+        </div>
+
+        <div class="project-card">
+            <h3>Self-Hosted Remote Support (RustDesk)</h3>
+            <p><strong>The Project:</strong> Deployed a private RustDesk server for internal remote support. This emphasized a <strong>Documentation-First</strong> approach to ensure ease of management for technical teams.</p>
+            <p><strong>Employer Benefit:</strong> Reduces reliance on external SaaS providers and ensures that all remote support traffic remains within the internal network perimeter.</p>
+            <div><span class="tag">Self-Hosting</span> <span class="tag">Remote Support</span> <span class="tag">Documentation</span></div>
+        </div>
+
+        <div class="project-card">
+            <h3>Virtual Tabletop Logic & Deployment</h3>
+            <p><strong>The Project:</strong> A self-directed study creating a virtual Magic: The Gathering environment. This required custom server-side logic and proves my ability to adapt IT principles to non-standard business requirements.</p>
+            <p><strong>Employer Benefit:</strong> Demonstrates technical adaptability and the logic required to build bespoke tools when commercial software falls short of specific needs.</p>
+            <div><span class="tag">Custom Logic</span> <span class="tag">Web Services</span> <span class="tag">Adaptability</span></div>
+        </div>
+    </section>
+
+    <div class="footer">
+        Active Portfolio | Hosted via GitHub Pages | <a href="https://linkedin.com" style="color: var(--accent);">LinkedIn Profile</a>
+    </div>
+</div>
+
+</body>
+</html>
