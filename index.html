@@ -9,7 +9,6 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
         .container { max-width: 1100px; margin: 20px auto; padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: #0b1120; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
-        /* PERSISTENT HEADER */
         header { display: flex; align-items: center; gap: 30px; border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 20px; flex-wrap: wrap; }
         .profile-img { width: 140px; height: 140px; border-radius: 12px; border: 2px solid var(--accent); object-fit: cover; }
         .header-info { flex: 1; min-width: 300px; }
@@ -19,13 +18,11 @@
         .li-btn { display: inline-flex; align-items: center; gap: 8px; background: #0077b5; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         .li-btn:hover { background: #005a87; transform: translateY(-2px); }
 
-        /* NAVIGATION MENU */
         nav { display: flex; gap: 8px; background: #161e2e; padding: 8px; border-radius: 6px; margin-bottom: 30px; border: 1px solid var(--border); flex-wrap: wrap; }
         .nav-link { color: var(--text); text-decoration: none; font-weight: bold; padding: 10px 15px; border-radius: 4px; transition: 0.3s; cursor: pointer; flex: 1; text-align: center; font-size: 0.9rem; min-width: 120px; }
         .nav-link:hover { color: var(--accent); background: rgba(34, 197, 94, 0.05); }
         .nav-link.active { background: var(--accent); color: #000; }
 
-        /* CONTENT AREA & GRID */
         .page-content { display: none; animation: fadeIn 0.4s ease-in-out; }
         .page-content.active { display: block; }
         .bio-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; }
@@ -35,11 +32,12 @@
         h3 { color: var(--accent); margin-top: 0; font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 15px; }
         
         .achievement-list, .skill-list { list-style: none; padding: 0; }
-        .achievement-list li { margin-bottom: 12px; padding-left: 15px; border-left: 2px solid var(--border); }
+        .achievement-list li { margin-bottom: 18px; padding-left: 15px; border-left: 2px solid var(--border); }
+        .achievement-list strong { color: var(--accent); display: block; font-size: 1.05rem; margin-bottom: 3px; }
+        .achievement-list p { margin: 0; font-size: 0.9rem; color: #cbd5e1; }
+        
         .skill-list li { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .skill-list li::before { content: "›"; color: var(--accent); font-weight: bold; }
-
-        .tag { background: #0f172a; color: var(--accent); padding: 4px 10px; font-size: 0.75rem; border: 1px solid var(--accent); border-radius: 4px; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 900px) { .bio-grid { grid-template-columns: 1fr; } header { flex-direction: column; text-align: center; } .contact-area { border-left: none; padding-left: 0; } }
@@ -79,7 +77,6 @@
                 
                 <div class="bio-sidebar">
                     <h2>Technical Stack</h2>
-                    
                     <div class="skill-card">
                         <h3>Security & Edge</h3>
                         <ul class="skill-list">
@@ -89,7 +86,6 @@
                             <li>Duo MFA Integration</li>
                         </ul>
                     </div>
-
                     <div class="skill-card">
                         <h3>Systems & Infrastructure</h3>
                         <ul class="skill-list">
@@ -99,16 +95,6 @@
                             <li>Apache Guacamole Gateways</li>
                         </ul>
                     </div>
-
-                    <div class="skill-card">
-                        <h3>Automation & Tools</h3>
-                        <ul class="skill-list">
-                            <li>Python (Systemd Watchdogs)</li>
-                            <li>API / Discord Webhook Alerting</li>
-                            <li>Technical Documentation</li>
-                            <li>Forensic Auditing & Logging</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -116,16 +102,38 @@
         <div id="capstone" class="page-content">
             <h2>Enterprise Secure Access Gateway & Zero Trust Lab</h2>
             <div class="project-card">
-                <h3>onepercentplaid.com</h3>
-                <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px;">Hardened "Dark Server" infrastructure designed to isolate and protect a Windows Active Directory Domain Controller.</p>
+                <h3 style="color: var(--accent); margin-top:0;">onepercentplaid.com</h3>
+                <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 25px;">
+                    Engineered a multi-tier security architecture to host and protect sensitive Windows Active Directory services within a "Dark Server" environment. This project demonstrates a transition from traditional perimeter security to a modern, identity-centric **Zero Trust model**, ensuring critical infrastructure remains invisible to the public internet.
+                </p>
+
                 <ul class="achievement-list">
-                    <li><strong>Zero-Trust Networking (ZTNA):</strong> Tailscale Mesh VPN implementation to eliminate public attack surfaces.</li>
-                    <li><strong>Active Intrusion Prevention:</strong> Custom Fail2Ban regex filters triggering automated firewall IP bans.</li>
-                    <li><strong>Forensic Auditing:</strong> Automated session recording for RDP/SSH connections.</li>
-                    <li><strong>Autonomous Alerting:</strong> Custom Python Watchdog service for real-time security telemetry.</li>
+                    <li>
+                        <strong>Zero-Trust Mesh Networking (WireGuard/Tailscale)</strong>
+                        <p>Eliminated the need for legacy VPNs and port forwarding by deploying an encrypted WireGuard-based mesh. This architecture ensures the Domain Controller has no public IP presence and is reachable only via authenticated nodes.</p>
+                    </li>
+                    <li>
+                        <strong>Reverse Proxy & Identity Gatekeeping</strong>
+                        <p>Deployed a hardened Nginx instance for SSL termination and traffic orchestration, integrated with Duo MFA to provide a mandatory secondary authentication layer for the Apache Guacamole portal.</p>
+                    </li>
+                    <li>
+                        <strong>Active Defense & Log Parsing (Fail2Ban)</strong>
+                        <p>Developed custom 'jail' configurations to monitor Nginx and system logs. The system automatically executes firewall-level IP bans upon detection of brute-force attempts or unauthorized directory traversal.</p>
+                    </li>
+                    <li>
+                        <strong>Forensic Auditing & Compliance</strong>
+                        <p>Implemented clientless RDP/SSH access with full video session recording. This creates a tamper-proof audit trail for administrative actions, essential for security compliance and incident response.</p>
+                    </li>
+                    <li>
+                        <strong>Python-Driven Security Telemetry</strong>
+                        <p>Authored an autonomous Python watchdog service running as a systemd unit. It monitors critical service health and log anomalies, pushing real-time incident reports to a Discord-based SOC via webhooks.</p>
+                    </li>
                 </ul>
-                <div style="margin-top:20px;">
-                    <a href="https://github.com/joddatrafih/Capstone2026" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: none; border: 1px solid var(--accent); padding: 8px 12px; border-radius: 4px;">[View Source Code] &rarr;</a>
+                
+                <div style="margin-top:25px;">
+                    <a href="https://github.com/joddatrafih/Capstone2026" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: bold; text-decoration: none; border: 1px solid var(--accent); padding: 10px 20px; border-radius: 4px;">
+                        [View Source Code on GitHub] &rarr;
+                    </a>
                 </div>
             </div>
         </div>
@@ -135,8 +143,8 @@
             <div class="project-card">
                 <p>Deployed a private, self-hosted RustDesk environment to provide secure remote support without relying on third-party SaaS providers.</p>
                 <ul class="achievement-list">
-                    <li><strong>Data Sovereignty:</strong> Ensured all remote metadata remains strictly within the internal perimeter.</li>
-                    <li><strong>Documentation-First:</strong> Created comprehensive deployment and policy hardening manuals.</li>
+                    <li><strong>Data Sovereignty:</strong> All remote metadata remains within the internal perimeter.</li>
+                    <li><strong>Documentation-First:</strong> Comprehensive deployment and policy hardening manuals for team-wide maintenance.</li>
                 </ul>
             </div>
         </div>
