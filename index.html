@@ -141,14 +141,37 @@
         <div id="rustdesk" class="page-content">
             <h2>Self-Hosted Remote Support Infrastructure</h2>
             <div class="project-card">
-                <p>Deployed a private, self-hosted RustDesk environment to provide secure remote support without relying on third-party SaaS providers.</p>
+                <h3 style="color: var(--accent); margin-top:0;">Private Remote Relay Deployment</h3>
+                <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 25px;">
+                    Architected and deployed a private, self-hosted RustDesk infrastructure on **Windows Server 2025** to eliminate reliance on third-party SaaS providers. This project focused on maintaining absolute **Data Sovereignty** and implementing a "CLI-Over-GUI" philosophy for reliable, automated systems management.
+                </p>
+
                 <ul class="achievement-list">
-                    <li><strong>Data Sovereignty:</strong> All remote metadata remains within the internal perimeter.</li>
-                    <li><strong>Documentation-First:</strong> Comprehensive deployment and policy hardening manuals for team-wide maintenance.</li>
+                    <li>
+                        <strong>Automated Service Availability</strong>
+                        <p>Engineered a PowerShell-driven automation workflow to register the RustDesk ID (hbbs) and Relay (hbbr) services as system-level background tasks. This ensures 24/7 availability and automatic recovery upon system reboot without requiring manual user intervention.</p>
+                    </li>
+                    <li>
+                        <strong>Identity Management & Least Privilege</strong>
+                        <p>Integrated with **Active Directory Domain Services (AD DS)** to manage technician access. Implemented group nesting (RemoteSupportUsers into Account Operators) to adhere to the Principle of Least Privilege while ensuring necessary administrative permissions for remote sessions.</p>
+                    </li>
+                    <li>
+                        <strong>Cryptographic Hardening & E2EE</strong>
+                        <p>Secured all remote sessions using the **NaCL Cryptographic Library**. Deployed ed25519 public key authentication to mitigate Man-in-the-Middle (MITM) attacks and disabled public relaying to ensure all session metadata remains within the internal network perimeter.</p>
+                    </li>
+                    <li>
+                        <strong>PowerShell-First Configuration</strong>
+                        <p>Bypassed GUI limitations by using PowerShell for advanced infrastructure tasks, including ICMP traffic enablement for network discovery, custom firewall rule creation (TCP 21115-21119), and modifying Task Scheduler power restrictions.</p>
+                    </li>
                 </ul>
+
+                <div class="tech-tags">
+                    <span class="tag">Windows Server 2025</span> <span class="tag">AD DS</span> <span class="tag">PowerShell</span> 
+                    <span class="tag">NaCL Encryption</span> <span class="tag">Task Scheduler Automation</span> <span class="tag">VMware</span>
+                </div>
             </div>
         </div>
-
+        
         <div id="tabletop" class="page-content">
             <h2>Virtual Tabletop Logic & Deployment</h2>
             <div class="project-card">
