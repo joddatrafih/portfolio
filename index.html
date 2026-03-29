@@ -39,6 +39,9 @@
         .skill-list li { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .skill-list li::before { content: "›"; color: var(--accent); font-weight: bold; }
 
+        /* FIXED: Added display: inline-block so tags look like bubbles */
+        .tag { background: #0f172a; color: var(--accent); padding: 4px 10px; font-size: 0.75rem; border: 1px solid var(--accent); border-radius: 4px; display: inline-block; margin-right: 5px; }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 900px) { .bio-grid { grid-template-columns: 1fr; } header { flex-direction: column; text-align: center; } .contact-area { border-left: none; padding-left: 0; } }
     </style>
@@ -143,31 +146,31 @@
             <div class="project-card">
                 <h3 style="color: var(--accent); margin-top:0;">Private Remote Relay Deployment</h3>
                 <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 25px;">
-                    Architected and deployed a private, self-hosted RustDesk infrastructure on **Windows Server 2025** to eliminate reliance on third-party SaaS providers. This project focused on maintaining absolute **Data Sovereignty** and implementing a "CLI-Over-GUI" philosophy for reliable, automated systems management.
+                    Architected and deployed a private, self-hosted RustDesk infrastructure on **Windows Server 2025**. This project focused on maintaining absolute **Data Sovereignty** and implementing a "CLI-Over-GUI" philosophy for reliable, automated systems management.
                 </p>
 
                 <ul class="achievement-list">
                     <li>
                         <strong>Automated Service Availability</strong>
-                        <p>Engineered a PowerShell-driven automation workflow to register the RustDesk ID (hbbs) and Relay (hbbr) services as system-level background tasks. This ensures 24/7 availability and automatic recovery upon system reboot without requiring manual user intervention.</p>
+                        <p>Utilized PowerShell to automate the RustDesk ID (hbbs) and Relay (hbbr) services, registering them as system-level background tasks via Task Scheduler to ensure 24/7 availability without manual login.</p>
                     </li>
                     <li>
                         <strong>Identity Management & Least Privilege</strong>
-                        <p>Integrated with **Active Directory Domain Services (AD DS)** to manage technician access. Implemented group nesting (RemoteSupportUsers into Account Operators) to adhere to the Principle of Least Privilege while ensuring necessary administrative permissions for remote sessions.</p>
+                        <p>Integrated with **AD DS** (joddat.local) to manage access. Adhered to the Principle of Least Privilege by nesting a specific `RemoteSupportUsers` group into the built-in `Account Operators` group via PowerShell.</p>
                     </li>
                     <li>
-                        <strong>Cryptographic Hardening & E2EE</strong>
-                        <p>Secured all remote sessions using the **NaCL Cryptographic Library**. Deployed ed25519 public key authentication to mitigate Man-in-the-Middle (MITM) attacks and disabled public relaying to ensure all session metadata remains within the internal network perimeter.</p>
+                        <strong>Cryptographic Hardening & Security</strong>
+                        <p>Secured all remote sessions with end-to-end encryption using the NaCL Cryptographic Library. Disabled public relays to eliminate third-party supply chain risk and ensure all metadata remains within the internal perimeter.</p>
                     </li>
                     <li>
-                        <strong>PowerShell-First Configuration</strong>
-                        <p>Bypassed GUI limitations by using PowerShell for advanced infrastructure tasks, including ICMP traffic enablement for network discovery, custom firewall rule creation (TCP 21115-21119), and modifying Task Scheduler power restrictions.</p>
+                        <strong>Infrastructure Automation (PowerShell)</strong>
+                        <p>Resolved technical limitations in the Task Scheduler and Windows Firewall using PowerShell to enable ICMP traffic and set custom firewall exceptions for TCP/UDP relay ports.</p>
                     </li>
                 </ul>
 
                 <div class="tech-tags">
                     <span class="tag">Windows Server 2025</span> <span class="tag">AD DS</span> <span class="tag">PowerShell</span> 
-                    <span class="tag">NaCL Encryption</span> <span class="tag">Task Scheduler Automation</span> <span class="tag">VMware</span>
+                    <span class="tag">NaCL Encryption</span> <span class="tag">Task Scheduler</span> <span class="tag">VMware</span>
                 </div>
             </div>
         </div>
@@ -177,21 +180,21 @@
             <div class="project-card">
                 <h3 style="color: var(--accent); margin-top:0;">Bespoke Gaming Infrastructure</h3>
                 <p style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 25px;">
-                    A 12-week self-directed study focused on engineering a real-time, web-based environment for Magic: The Gathering tabletop play. This project served as a technical laboratory for testing low-latency, bi-directional communication and modular event-driven architecture.
+                    A 12-week self-directed study focused on engineering a real-time, web-based environment for Magic: The Gathering tabletop play. This project served as a technical laboratory for testing low-latency, bi-directional communication.
                 </p>
 
                 <ul class="achievement-list">
                     <li>
                         <strong>Real-Time State Synchronization</strong>
-                        <p>Implemented <strong>Node.js</strong> and <strong>Socket.IO</strong> to handle concurrent user connections with sub-millisecond latency. Developed a WebSocket-based signaling layer to ensure that every game state change is broadcasted and synchronized across all connected clients instantly.</p>
+                        <p>Utilized **Node.js** and **Socket.IO** to handle concurrent connections with sub-millisecond latency. Developed a WebSocket-based signaling layer for instant, synchronized game-state broadcasts across all clients.</p>
                     </li>
                     <li>
                         <strong>Event-Driven Game Logic</strong>
-                        <p>Architected a modular backend to process complex game state transitions. This required bridging abstract gameplay rules with functional server-side logic, demonstrating high technical adaptability beyond standard IT support frameworks.</p>
+                        <p>Architected a modular backend to process complex transitions, bridging abstract gameplay rules with functional server-side logic and modular code design.</p>
                     </li>
                     <li>
                         <strong>Project Lifecycle & Architecture</strong>
-                        <p>Managed the entire development lifecycle, from the initial technical proposal and architectural design to the final deployment. This project highlights the ability to engineer custom technical tools when off-the-shelf software falls short of specific user requirements.</p>
+                        <p>Managed the end-to-end lifecycle, from the initial architectural design and technical proposal to the final deployment of a custom tool where commercial software was insufficient.</p>
                     </li>
                 </ul>
 
